@@ -1,7 +1,7 @@
 # EECS4415-Big Data Systems: Project 3 (30%)
 
 **Title:** Real-Time Streaming Analytics with Apache Spark and Python   
-**Start:** March 14, 2022, @ 9:00am EST   
+**Out:** March 14, 2022, @ 9:00am EST   
 **Due:** April 11, 2022, by 9:00pm EST
 
 ## Objective
