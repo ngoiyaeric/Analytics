@@ -56,17 +56,17 @@ The overall requirements are as follows:
 2. Develop a data source service using Python, which collects information about the most recently-pushed repositories that use any of the three programming languages as the primary coding language through GitHub API (Hint: see Appendix 2). The Python scripts should collect and push the new data to Spark at an interval of around 15 seconds, which means that every 15 seconds, the scripts feed Spark with the latest data. Also, the scripts should print the data being sent to Spark using the `print()` function.
 
 3. Develop a Python script (streaming application) for Spark streaming (`spark_app.py` in the `streaming` folder). The application receives the streaming data, divides it into batches at an interval of 60 seconds (batch duration is 60 seconds), and performs the following four analysis tasks.
-    * (1) Compute the total number of the collected repositories since the start of the streaming application for each of the three programming languages. Each repository should be counted only once.
-    * (2) Compute the number of the collected repositories with changes pushed during the last 60 seconds. Each repository should be counted only once during a batch interval (60 seconds).
-    * (3) Compute the average number of stars of all the collected repositories since the start of the streaming application for each of the three programming languages. Each repository counts towards the result only once.
-    * (4) Find the top 10 most frequent words in the description of all the collected repositories since the start of the streaming application for each of the three programming languages. Each repository counts towards the result only once. You don't need to process the project description if it is empty (null). You should use the statement `re.sub('[^a-zA-Z ]', '', DESCRIPTION_STRING)` to strip the description before extracting words.
-    * (5) Print the analysis results for each batch (like the streaming application presented in Lab 7).
+   1. Compute the total number of the collected repositories since the start of the streaming application for each of the three programming languages. Each repository should be counted only once.
+   2. Compute the number of the collected repositories with changes pushed during the last 60 seconds. Each repository should be counted only once during a batch interval (60 seconds).
+   3. Compute the average number of stars of all the collected repositories since the start of the streaming application for each of the three programming languages. Each repository counts towards the result only once.
+   4. Find the top 10 most frequent words in the description of all the collected repositories since the start of the streaming application for each of the three programming languages. Each repository counts towards the result only once. You don't need to process the project description if it is empty (null). You should use the statement `re.sub('[^a-zA-Z ]', '', DESCRIPTION_STRING)` to strip the description before extracting words.
+   5. Print the analysis results for each batch (like the streaming application presented in Lab 7).
 
 4. Develop a web service listening on port 5000, which receives the analysis results from Spark and visualizes them in real-time (Hint: see Appendix 3). The web service runs a dashboard web application that includes:
-    * Three numbers that tell the total number of the collected repositories since the start of the streaming application for each of the three programming languages in real-time (requirement 3.1). The numbers are updated every 60 seconds.
-    * A real-time line chart that shows the number of the recently-pushed repositories during each batch interval (60 seconds) for each of the three programming languages (requirement 3.2). The chart should be properly labeled, where the time is on the x-axis and the count is on the y-axis. The chart is updated every 60 seconds.
-    * A real-time bar plot that shows the average number of stars of all the collected repositories since the start of the streaming application for each of the three programming languages (requirement 3.3). The bar plot should be properly labeled and updated every 60 seconds.
-    * Three lists that contain the top 10 most frequent words in the description of all the collected repositories since the start of the streaming application and the number of occurrences of each word, sorted from the most frequent to the least, for each of the three programming languages in real-time (requirement 3.4). The lists are updated every 60 seconds.
+    1. Three numbers that tell the total number of the collected repositories since the start of the streaming application for each of the three programming languages in real-time (requirement 3(i)). The numbers are updated every 60 seconds.
+    2. A real-time line chart that shows the number of the recently-pushed repositories during each batch interval (60 seconds) for each of the three programming languages (requirement 3(ii)). The chart should be properly labeled, where the time is on the x-axis and the count is on the y-axis. The chart is updated every 60 seconds.
+    3. A real-time bar plot that shows the average number of stars of all the collected repositories since the start of the streaming application for each of the three programming languages (requirement 3(iii)). The bar plot should be properly labeled and updated every 60 seconds.
+    4. Three lists that contain the top 10 most frequent words in the description of all the collected repositories since the start of the streaming application and the number of occurrences of each word, sorted from the most frequent to the least, for each of the three programming languages in real-time (requirement 3(iv)). The lists are updated every 60 seconds.
 
 5. Containerize all components of the data streaming pipeline (i.e., data source service, Spark cluster, and web service) with Docker and orchestrate containers using Docker Compose. The whole system should be up and running using the following commands:
     ```
@@ -89,12 +89,12 @@ Also, you should strictly follow the following technicalities/instructions:
 You need to deploy your GitHub streaming analytics pipeline and keep it running for at least two hours on your machine. Then, you need to prepare a text file (`data.txt`), which consists of analysis results in the following format:
 ```
 Application start timestamp in UTC:application end timestamp in UTC
-Python:#collected repo (requirement 3.1):average number of stars (requirement 3.3)
-PL2:#collected repo (requirement 3.1):average number of stars (requirement 3.3)
-PL3:#collected repo (requirement 3.1):average number of stars (requirement 3.3)
-Python:a comma-separated list with ten tuples, each of which contains a frequent word (top 10) and its number of occurrences (requirement 3.4)
-PL2:a comma-separated list with ten tuples, each of which contains a frequent word (top 10) and its number of occurrences (requirement 3.4)
-PL3:a comma-separated list with ten tuples, each of which contains a frequent word (top 10) and its number of occurrences (requirement 3.4)
+Python:#collected repo (requirement 3(i)):average number of stars (requirement 3(iii))
+PL2:#collected repo (requirement 3(i)):average number of stars (requirement 3(iii))
+PL3:#collected repo (requirement 3(i)):average number of stars (requirement 3(iii))
+Python:a comma-separated list with ten tuples, each of which contains a frequent word (top 10) and its number of occurrences (requirement 3(iv))
+PL2:a comma-separated list with ten tuples, each of which contains a frequent word (top 10) and its number of occurrences (requirement 3(iv))
+PL3:a comma-separated list with ten tuples, each of which contains a frequent word (top 10) and its number of occurrences (requirement 3(iv))
 ```
 For example
 ```
@@ -106,8 +106,10 @@ Python:(You,1000),(need,999),(to,998),(deploy,997),(the,996),(streaming,995),(an
 Java:(it,1024),(running,512),(for,256),(at,128),(least,64),(two,32),(hours,16),(on,8),(your,4),(machine,2)
 Ruby:(Then,100),(you,99),(need,98),(to,97),(prepare,96),(a,95),(text,94),(file,93),(which,92),(consists,91)
 ```
-Also, you need to write a short report (`report.pdf`) that briefly explains the system architecture and implementation of your solution.
-
+Also, you need to write a short report (1-2 pages) that briefly explains the system architecture and implementation of your solution. The report should at least cover:
+* description of the system architecture
+* how the services interact with each other
+* how the Spark application processes the streaming data
 
 
 ## Evaluation
