@@ -22,7 +22,7 @@ This project involves designing and implementing a big data system that performs
 **Hint:** You can find a data streaming system with a similar architecture in Lab 7. It is highly recommended to test your solution in the VM provided in Lab 2. We will use the same environment to evaluate your submission.
 
 ## Submission
-You need to zip your repository and submit as one zip file with the name of *project2.zip* on eClass by the due date. The directory structure in *project2.zip* should look like this:
+You need to zip your repository and submit as one zip file with the name of *project3.zip* on eClass by the due date. The directory structure in *project2.zip* should look like this:
 
 ```
 EECS4415_Project_3/
