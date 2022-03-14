@@ -19,7 +19,7 @@ This project involves designing and implementing a big data system that performs
 * All scripts are to be written using Python >= 3.7.0.
 * You should use LF line terminators in your scripts.
 
-**Hint:** You can find a data streaming system with a similar architecture in Lab 7. It is highly recommended to test your solution in the VM provided in Lab 2. We will use the same environment to evaluate your submission.
+**Hint:** You can find a [data streaming system](https://github.com/pacslab/big-data-systems-docker/blob/main/spark/app/nine-multiples/) with a similar architecture in Lab 7. It is highly recommended to test your solution in the VM provided in Lab 2. We will use the same environment to evaluate your submission.
 
 ## Submission
 You need to zip your repository and submit as one zip file with the name of *project3.zip* on eClass by the due date. The directory structure in *project3.zip* should look like this:
@@ -152,7 +152,7 @@ The search API returns a JSON file that contains a list (`items`), where each el
 
 GitHub Search API has a rate limit of 30 requests per minute for authenticated requests. The rate limit allows you to make up to 10 requests per minute for unauthenticated requests. Thus, you need a GitHub personal access token (PAT) to make requests in the data source service. You can follow [these steps](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to get a PAT.
 
-In order to search repositories, you need to send HTTP GET requests to GitHub API. You can easily do so using the [`requests`](https://docs.python-requests.org/en/latest/) package. The following code block sends an HTTP GET request to GitHub Search API and obtains the recently-pushed repositories that uses C# as the primary programming language.
+In order to search repositories, you need to send HTTP GET requests to GitHub API. You can easily do so using the [`requests`](https://docs.python-requests.org/en/latest/) package. The following code block sends an HTTP GET request to GitHub Search API and obtains the recently-pushed repositories that use C# as the primary programming language.
 ```
 import requests
 
@@ -168,7 +168,7 @@ token = os.getenv('TOKEN')
 ```
 
 ### 3. Web Application
-The web application visualizes the analysis results in real-time, which doesn't need to be fancy. A simple dashboard such as shown in the figure below would suffice. You can easily create a web application using web frameworks, such as [Flask](https://flask.palletsprojects.com/en/2.0.x/) and [Django](https://www.djangoproject.com/). Also, a simple Flask-based dashboard is presented in Lab 7. You can modify its source code to implement the web application for this project.
+The web application visualizes the analysis results in real-time, which doesn't need to be fancy. A simple dashboard such as shown in the figure below would suffice. You can easily create a web application using web frameworks, such as [Flask](https://flask.palletsprojects.com/en/2.0.x/) and [Django](https://www.djangoproject.com/). Also, a simple [Flask-based dashboard](https://github.com/pacslab/big-data-systems-docker/blob/main/spark/app/nine-multiples/webapp/flask_app.py) is presented in Lab 7. You can modify its source code to implement the web application for this project.
 
 <img src="Webapp.png" alt="Webapp Screenshot" width="500"/>
 
