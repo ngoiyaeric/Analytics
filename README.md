@@ -31,6 +31,7 @@ EECS4415_Project_3/
 │  ├─ spark_app.py
 │  ├─ ...
 ├─ data.txt
+├─ report.pdf
 ├─ info.txt
 ├─ README.md
 ├─ System_Architecture.png
