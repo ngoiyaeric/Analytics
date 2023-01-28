@@ -1,4 +1,4 @@
-# Frequently Asked Questions
+# Q&As on the Project Description
 
 ## When displaying the result of the description word counts on the webapp dashboard, is it okay if we assume that each repository count towards the result only once since the start of the streaming like in 3iv)?
 You can't assume that. You need to check if the repo has been processed before.
