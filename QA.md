@@ -42,7 +42,7 @@ https://api.github.com/search/repositories?q=+language:Javascript+language:java+
 
 if we use the above endpoint it returns the repositories data that uses either of the Javascript, java or C as their primary language.  I wonder if we should use 3 different endpoints to fetch data for each of the 3 programming languages from github separately or  we can use an endpoint that fetch data from repositories of the 3 programming languages at once?
 ```
-Yes, you can
+Please use the URL presented in the project description. That is to say, your data source service queries one PL in a request.
 
 ## From my understanding of instructions I assume for running the application we need to replace our PAT with dummyvalue in docker-compose.yaml and then using the os module we need to get 'TOKEN' variable and store it in a variable and then use that variable instead of our actual path in front of the Authorization in the following code instead of putting our actual PAT:
 ```
