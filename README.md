@@ -33,6 +33,7 @@ EECS4415_Project_3/
 ├─ data.txt
 ├─ report.pdf
 ├─ info.txt
+├─ QA.md
 ├─ README.md
 ├─ System_Architecture.png
 ├─ Webapp.png
