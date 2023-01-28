@@ -122,6 +122,8 @@ An automated judge will programmatically evaluate the majority part of your solu
 * Containerization and Orchestration (10%): all services are properly containerized with Docker and orchestrated by Docker Compose following the requirements; the data streaming pipeline can run without any error using the commands in Requirement 5; in order to get these marks, your data source service, spark application, and webapp service must function properly.
 * Data and Report (10%): the data submitted in `data.txt` is valid and authentic; the report correctly describes the system architecture and implementation of the solution.
 
+## Q&As on the Project Description
+Please refer to [QA.md](QA.md).
 
 
 ## Appendix
