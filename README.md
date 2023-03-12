@@ -1,8 +1,13 @@
 # EECS4415-Big Data Systems: Project 3 (30%)
 
 **Title:** Real-Time Streaming Analytics with Apache Spark and Python   
+<<<<<<< HEAD
 **Out:** March 13, 2023, @ 9:00am EST   
 **Due:** April 9, 2023, by 9:00pm EST
+=======
+**Out:** March 14, 2022, @ 9:00am EDT   
+**Due:** April 11, 2022, by 9:00pm EDT
+>>>>>>> 23c9ff82e348bdc14b707e8b89e8c5e5e29c2024
 
 ## Objective
 This project involves designing and implementing a big data system that performs real-time streaming analytics for public repositories hosted on GitHub. The system runs a stream processing pipeline, where the live data stream to be analyzed is coming from GitHub API. An Apache Spark cluster processes the data stream. A web application receives the output from Spark and visualizes the analysis result. In this project, you will follow the requirements to write codes (Python, Bash, YAML scripts, Dockerfiles) that implement such a streaming process pipeline, which is a multi-container system based on Docker and Docker Compose.
@@ -19,7 +24,7 @@ This project involves designing and implementing a big data system that performs
 * All scripts are to be written using Python >= 3.7.0.
 * You should use LF line terminators in your scripts.
 
-**Hint:** You can find a data streaming system with a similar architecture in Lab 7. It is highly recommended to test your solution in the VM provided in Lab 2. We will use the same environment to evaluate your submission.
+**Hint:** You can find a [data streaming system](https://github.com/pacslab/big-data-systems-docker/blob/main/spark/app/nine-multiples/) with a similar architecture in Lab 7. It is highly recommended to test your solution in the VM provided in Lab 2. We will use the same environment to evaluate your submission.
 
 ## Submission
 You need to zip your repository and submit as one zip file with the name of *project3.zip* on eClass by the due date. The directory structure in *project3.zip* should look like this:
@@ -31,7 +36,9 @@ EECS4415_Project_3/
 │  ├─ spark_app.py
 │  ├─ ...
 ├─ data.txt
+├─ report.pdf
 ├─ info.txt
+├─ QA.md
 ├─ README.md
 ├─ System_Architecture.png
 ├─ Webapp.png
@@ -83,7 +90,7 @@ Also, you should strictly follow the following technicalities/instructions:
 * The web application should map the port that the web app is listening on to port `5000` on the Docker host using the `ports` attribute in `docker-compose.yaml`.
 * The data source service should read the GitHub personal access token (PAT) from the environment variable `TOKEN`, which is defined by the `environment` field in `docker-compose.yaml`. Do not hard-code your PAT anywhere in your solution. In your submission, you can define a dummy value in `docker-compose.yaml`, and we will replace it with our PAT when evaluating your solution.
 * The architecture of your solution should be similar to the aforementioned system architecture. You can add a Redis service just like the streaming application presented in Lab 7. Thus, the whole system should comprise 4 or 5 services, which include a data source service, a Spark master service, a Spark worker service, a web application service, and an optional Redis service. You may not add any other services to the system.
-* You can only use the `eecs4415/spark`, `eecs4415/hadoop`, and `eecs4415/python` images or build your own images based on these images. The operations to pull other Docker images will be blocked. If you choose to build your own images, you need to specify the path to the build context using the `build` attribute in `docker-compose.yaml`.
+* You can only use the `eecs4415/spark`, `eecs4415/hadoop`, `eecs4415/python`, and `redis` images or build your own images based on these images. The operations to pull other Docker images will be blocked. If you choose to build your own images, you need to specify the path to the build context using the `build` attribute in `docker-compose.yaml`.
 
 ## Data and Report 
 You need to deploy your GitHub streaming analytics pipeline and keep it running for at least two hours on your machine. Then, you need to prepare a text file (`data.txt`), which consists of analysis results in the following format:
@@ -121,6 +128,8 @@ An automated judge will programmatically evaluate the majority part of your solu
 * Containerization and Orchestration (10%): all services are properly containerized with Docker and orchestrated by Docker Compose following the requirements; the data streaming pipeline can run without any error using the commands in Requirement 5; in order to get these marks, your data source service, spark application, and webapp service must function properly.
 * Data and Report (10%): the data submitted in `data.txt` is valid and authentic; the report correctly describes the system architecture and implementation of the solution.
 
+## Q&As on the Project Description
+Please refer to [QA.md](QA.md).
 
 
 ## Appendix
@@ -152,7 +161,7 @@ The search API returns a JSON file that contains a list (`items`), where each el
 
 GitHub Search API has a rate limit of 30 requests per minute for authenticated requests. The rate limit allows you to make up to 10 requests per minute for unauthenticated requests. Thus, you need a GitHub personal access token (PAT) to make requests in the data source service. You can follow [these steps](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to get a PAT.
 
-In order to search repositories, you need to send HTTP GET requests to GitHub API. You can easily do so using the [`requests`](https://docs.python-requests.org/en/latest/) package. The following code block sends an HTTP GET request to GitHub Search API and obtains the recently-pushed repositories that uses C# as the primary programming language.
+In order to search repositories, you need to send HTTP GET requests to GitHub API. You can easily do so using the [`requests`](https://docs.python-requests.org/en/latest/) package. The following code block sends an HTTP GET request to GitHub Search API and obtains the recently-pushed repositories that use C# as the primary programming language.
 ```
 import requests
 
@@ -168,7 +177,7 @@ token = os.getenv('TOKEN')
 ```
 
 ### 3. Web Application
-The web application visualizes the analysis results in real-time, which doesn't need to be fancy. A simple dashboard such as shown in the figure below would suffice. You can easily create a web application using web frameworks, such as [Flask](https://flask.palletsprojects.com/en/2.0.x/) and [Django](https://www.djangoproject.com/). Also, a simple Flask-based dashboard is presented in Lab 7. You can modify its source code to implement the web application for this project.
+The web application visualizes the analysis results in real-time, which doesn't need to be fancy. A simple dashboard such as shown in the figure below would suffice. You can easily create a web application using web frameworks, such as [Flask](https://flask.palletsprojects.com/en/2.0.x/) and [Django](https://www.djangoproject.com/). Also, a simple [Flask-based dashboard](https://github.com/pacslab/big-data-systems-docker/blob/main/spark/app/nine-multiples/webapp/flask_app.py) is presented in Lab 7. You can modify its source code to implement the web application for this project.
 
 <img src="Webapp.png" alt="Webapp Screenshot" width="500"/>
 
