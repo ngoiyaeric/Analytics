@@ -1,13 +1,8 @@
 # EECS4415-Big Data Systems: Project 3 (30%)
 
 **Title:** Real-Time Streaming Analytics with Apache Spark and Python   
-<<<<<<< HEAD
 **Out:** March 13, 2023, @ 9:00am EST   
 **Due:** April 9, 2023, by 9:00pm EST
-=======
-**Out:** March 14, 2022, @ 9:00am EDT   
-**Due:** April 11, 2022, by 9:00pm EDT
->>>>>>> 23c9ff82e348bdc14b707e8b89e8c5e5e29c2024
 
 ## Objective
 This project involves designing and implementing a big data system that performs real-time streaming analytics for public repositories hosted on GitHub. The system runs a stream processing pipeline, where the live data stream to be analyzed is coming from GitHub API. An Apache Spark cluster processes the data stream. A web application receives the output from Spark and visualizes the analysis result. In this project, you will follow the requirements to write codes (Python, Bash, YAML scripts, Dockerfiles) that implement such a streaming process pipeline, which is a multi-container system based on Docker and Docker Compose.
